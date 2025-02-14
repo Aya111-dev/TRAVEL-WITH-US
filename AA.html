@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Hero Section */
+/* Hero Section avec zoom sur l'image de fond */
+/* Hero Section avec fondu sur l'image de fond */
+.hero {
+    position: relative;
+    background: url('aa.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background 1s ease-in-out; /* Transition de l'image de fond */
+}
+
+.hero:hover {
+    background: url('xx.jpg') no-repeat center center/cover; /* Nouvelle image lors du survol */
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.hero:hover h1 {
+    transform: translateY(-10px); /* Déplacement du titre */
+    color: #42a5f5; /* Changement de couleur du texte */
+}
+
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-brand {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #42a5f5;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    background-color: #42a5f5;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Main content sections */
+#destinations, #services, #contact {
+    padding: 70px 20px;
+    color: rgb(80, 8, 8);
+    text-align: center;
+}
+
+#destinations h2, #services h2, #contact h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    position: relative;
+    color: #333;
+}
+
+#destinations h2::after, #services h2::after, #contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #42a5f5;
+    border-radius: 2px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #22435e;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+}
+
+.footer p {
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer:hover p {
+    opacity: 1;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global Styling for the About Section */
+/* Global Styling for the About Section */
+#about {
+    background: #22435e;
+    color: #ffffff;
+    padding: 60px 0;
+    
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #f8f9fa; /* Light color for headings */
+}
+
+#about .lead {
+    font-size: 1.25rem;
+    color: #f8f9fa;
+}
+
+#about .row {
+    margin-top: 40px;
+}
+
+#about .card-body {
+    padding: 1.25rem;
+}
+
+#about .img-fluid {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+#about .col-md-6 {
+    margin-bottom: 30px;
+}
+
+#about .h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+#about ul {
+    padding-left: 20px;
+}
+
+#about ul li {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+#about ul li .fa-check-circle {
+    color: #28a745; /* Green for check icons */
+}
+
+#about .text-center a {
+    padding: 15px 30px;
+    font-size: 1.125rem;
+    background-color: #5e5f61;
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#about .text-center a:hover {
+    background-color: #2d2e30; /* Darker blue on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for images (profile pictures) */
+#about .rounded-circle {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 4px solid #b41818;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+#about .col-6 {
+    margin-bottom: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+    #about h2 {
+        font-size: 2rem;
+    }
+
+    #about .lead {
+        font-size: 1.125rem;
+    }
+
+    #about .h3 {
+        font-size: 1.5rem;
+    }
+
+    #about ul li {
+        font-size: 1rem;
+    }
+
+    #about .rounded-circle {
+        width: 100px;
+        height: 100px;
+    }
+}
+#destinations {
+    background-image: url(kha.jpg) ;
+    padding: 60px 0;
+}
+
+#destinations h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #007bff;
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Style des cartes */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    background: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Style du bouton */
+.btn-primary {
+    background: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+
+.contact-section {
+    background-image: url(foo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s ease-in-out; /* Transition pour changement de fond */
+}
+
+.contact-section:hover {
+    background-color: #0056b3; /* Changement de couleur de fond au survol */
+}
+
+.contact-section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    transition: font-size 0.5s ease-in-out;
+}
+
+.contact-section .lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/* Formulaire de réservation */
+.reservation-form {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.reservation-form:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px); /* Effet de survol du formulaire */
+}
+
+.reservation-form .form-control {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.reservation-form .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Bouton de soumission */
+.btn-submit {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+/* Changement de couleur du texte dans la section de contact */
+.contact-section i {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Travel WITH US</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a  class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Home Section (Hero Section) -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Explore the World with Us</h1>
+            <p class="lead">Discover amazing destinations at the best prices</p>
+            <a href="#destinations" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about" class="bg-gradient text-light py-5">
+        <div class="container">
+            <!-- Section Title -->
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-12 col-md-8">
+                    <h2 class="display-4 mb-4">About Us</h2>
+                    <p class="lead">Your gateway to unforgettable travel experiences. We are committed to making your journey exciting and seamless from start to finish.</p>
+                </div>
+            </div>
+    
+            <!-- Our Story and Travel Image -->
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="our.jpg" class="img-fluid rounded shadow-lg" alt="Travel Image">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="h3 mb-3">Our Story</h4>
+                    <p>We started in 2020 with a simple idea: help people experience the world in the best way possible. Our goal is to provide personalized travel solutions for all kinds of adventures. From relaxing beach vacations to thrilling mountain expeditions, we cater to all types of travelers.</p>
+                </div>
+            </div>
+    
+            <!-- Why Choose Us and Meet the Team -->
+            <div class="row mt-5">
+                <!-- Why Choose Us Section -->
+                <div class="col-md-6">
+                    <h4 class="h3 mb-3">Why Choose Us?</h4>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle fa-lg text-success me-3"></i>
+                            <span>Custom-tailored itineraries designed just for you.</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle fa-lg text-success me-3"></i>
+                            <span>Best price guarantees on all bookings.</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle fa-lg text-success me-3"></i>
+                            <span>24/7 support to ensure smooth travels.</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle fa-lg text-success me-3"></i>
+                            <span>Expert travel consultants with years of experience.</span>
+                        </li>
+                    </ul>
+                </div>
+    
+                <!-- Meet the Team Section -->
+                <div class="col-md-6 text-center">
+                    <h4 class="h3 mb-3">Meet the Team</h4>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <img src="guidee1.jpg" class="rounded-circle shadow-lg" alt="Team Member 1">
+                            <h5 class="mt-2">John Doe</h5>
+                            <p>Founder & CEO</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="guidee2.jpg" class="rounded-circle shadow-lg" alt="Team Member 2">
+                            <h5 class="mt-2">Jane Smith</h5>
+                            <p>Head of Operations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Call to Action Button -->
+            <div class="text-center mt-5">
+                <a href="#contact" class="btn btn-lg btn-primary shadow-lg">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+    
+<!-- Add FontAwesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <!-- Destinations Section --> 
+    <section id="destinations" class="bg-primary"> 
+        <div class="container py-5">
+            <h2 class="text-center mb-4 text-white">Popular Destinations</h2>
+            <div class="row">
+                <!-- Europe -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="aurop1.jpg" class="card-img-top" alt="Europe">
+                        <div class="card-body">
+                            <h5 class="card-title">Europe</h5>
+                            <p class="card-text">"Europe, with its iconic cities, breathtaking landscapes, and rich culture, invites you to an unforgettable adventure." 🌍✨</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Asia -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assia.jpg" class="card-img-top" alt="Asia">
+                        <div class="card-body">
+                            <h5 class="card-title">Asia</h5>
+                            <p class="card-text">"Asia, a land of ancient traditions, vibrant cities, and breathtaking landscapes, where past and future blend seamlessly." 🌿✨</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Africa -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="africa.jpg" class="card-img-top" alt="Africa">
+                        <div class="card-body">
+                            <h5 class="card-title">Africa</h5>
+                            <p class="card-text">"Africa, the heartbeat of the world, where the sun kisses the earth and life dances through its vibrant cultures." 🌍✨</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- South America -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="sou.jpg" class="card-img-top" alt="South America">
+                        <div class="card-body">
+                            <h5 class="card-title">South America</h5>
+                            <p class="card-text">"South America, a land of breathtaking landscapes, rich history, and unparalleled adventure." 🌎✨</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Australia -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="aus1.jpg" class="card-img-top" alt="Australia">
+                        <div class="card-body">
+                            <h5 class="card-title">Australia</h5>
+                            <p class="card-text">"Experience the wonders of Australia with us—adventure, beauty, and unforgettable moments await you!" 🇦🇺✨🌏🌊🦘</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- North America -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="north.jpg" class="card-img-top" alt="North America">
+                        <div class="card-body">
+                            <h5 class="card-title">North America</h5>
+                            <p class="card-text">"North America, a land of towering mountains, bustling cities, and boundless opportunities." 🌎✨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="text-center">
+        <div class="container">
+            <h2>Nos Services de Voyage</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="flight.avif" class="card-img-top" alt="Voyage exotique">
+                        <div class="card-body">
+                            <h5 class="card-title">FLIGHT BOOKING</h5>
+                            <p class="card-text">"Book your flight with our agency and travel with peace of mind, thanks to flexible options and competitive fares!" ✈️🌍</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#contact" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="hot.avif" class="card-img-top" alt="Voyage tout compris">
+                        <div class="card-body">
+                            <h5 class="card-title">HOTEL BOOKING</h5>
+                            <p class="card-text">"Book your hotel with us and enjoy a comfortable stay, with a wide range of options and the best prices!" 🏨✨</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#contact" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="mm.jpg" class="card-img-top" alt="Aventures personnalisées">
+                        <div class="card-body">
+                            <h5 class="card-title">Adventures with us</h5>
+                            <p class="card-text">"Embark on unforgettable adventures with us, where every journey is filled with excitement and discovery!" 🌟🌍🚀.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#contact" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+   
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <!-- Section Title -->
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-12 col-md-8">
+                    <h2 class="display-4 mb-4 text-white">Réservez Votre Voyage</h2>
+                    <p class="lead text-light">Prêt à explorer le monde avec nous ? Remplissez le formulaire ci-dessous et nous vous aiderons à planifier votre prochaine aventure !</p>
+                </div>
+            </div>
+    
+            <!-- Reservation Form -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <form action="#" method="post" class="reservation-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <input type="text" class="form-control" placeholder="Votre Nom" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <input type="email" class="form-control" placeholder="Votre Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Choisissez votre destination</option>
+                                <option value="europ">Europe</option>
+                                <option value="assia">Asie</option>
+                                <option value="africa">Afrique</option>
+                                <option value="south">Amérique du Sud</option>
+                                <option value="australia">Australie</option>
+                                <option value="north">Amérique du Nord</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <textarea class="form-control" rows="5" placeholder="Vos commentaires ou préférences"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Envoyer ma réservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  
+
+
+        
+    <!-- Footer -->
+    <footer class="footer text-white text-center py-3">
+        <p>&copy; 2025 Travel Agency. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
